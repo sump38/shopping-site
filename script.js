@@ -16,18 +16,17 @@ function createNewItem(item){
     newDiv.innerText = item;
     newDiv.classList.add("product")
     productContainer.append(newDiv);
-    
 }
 
-const blackTea = document.createElement("div");
-const greenTea = document.createElement("div");
+// const blackTea = document.createElement("div");
+// const greenTea = document.createElement("div");
 
-blackTea.innerHTML = productsList[0];
-greenTea.innerHTML = productsList[1];
+// blackTea.innerHTML = productsList[0];
+// greenTea.innerHTML = productsList[1];
 
 
-blackTea.classList.add("product");
-greenTea.classList.add("product");
+// blackTea.classList.add("product");
+// greenTea.classList.add("product");
 
-productContainer.appendChild(blackTea);
-productContainer.appendChild(greenTea);
+// productContainer.appendChild(blackTea);
+// productContainer.appendChild(greenTea);
