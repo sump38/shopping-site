@@ -7,6 +7,8 @@ submitBtn.addEventListener("click",()=>{
     let newItemName = newItemField.value;
     productsList.push(newItemName);
     createNewItem(productsList[productsList.length-1])
+    newItemField.value = "";
+    newItemField.focus();
 })
 
 function createNewItem(item){
