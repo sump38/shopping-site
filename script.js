@@ -1,7 +1,21 @@
 const productContainer = document.getElementById("products-container");
+const submitBtn = document.getElementById("subminBtn");
+const newItemField = document.getElementById("newItemField");
+const productsList  = ["Black Tea", "Coffee"];
 
-const productsList  = ["Black Tea", "Coffee", "Green Tea"];
+submitBtn.addEventListener("click",()=>{
+    let newItemName = newItemField.value;
+    productsList.push(newItemName);
+    createNewItem(productsList[productsList.length-1])
+})
 
+function createNewItem(item){
+    const newDiv = document.createElement("div");
+    newDiv.innerText = item;
+    newDiv.classList.add("product")
+    productContainer.append(newDiv);
+    
+}
 
 const blackTea = document.createElement("div");
 const greenTea = document.createElement("div");
@@ -15,4 +29,3 @@ greenTea.classList.add("product");
 
 productContainer.appendChild(blackTea);
 productContainer.appendChild(greenTea);
-console.log('done');
