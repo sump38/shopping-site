@@ -1,22 +1,23 @@
 const productContainer = document.getElementById("products-container");
 const submitBtn = document.getElementById("subminBtn");
 const newItemField = document.getElementById("newItemField");
-const productsList  = ["Black Tea", "Coffee"];
 
-submitBtn.addEventListener("click",()=>{
-    let newItemName = newItemField.value;
-    productsList.push(newItemName);
-    createNewItem(productsList[productsList.length-1])
-    newItemField.value = "";
-    newItemField.focus();
-})
 
-function createNewItem(item){
-    const newDiv = document.createElement("div");
-    newDiv.innerText = item;
-    newDiv.classList.add("product")
-    productContainer.append(newDiv);
+fetch('http://127.0.0.1:5500/products.json')
+    .then((response) => response.json())
+    .then((data) =>{
+       createNewItem(data)
+    });
+
+function createNewItem(items){
+    for (let i = 0; i < items.length; i++) {
+        const itemDiv = document.createElement("div")
+        itemDiv.innerText = items[i].itemName;
+        itemDiv.classList.add("product");
+        productContainer.append(itemDiv)
+    }
 }
+
 
 // const blackTea = document.createElement("div");
 // const greenTea = document.createElement("div");

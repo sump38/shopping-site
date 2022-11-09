@@ -2,12 +2,20 @@
     "itemName": "black Tea",
     "description": "",
     "amount": 5,
-    "price": 15
+    "price": 15,
+    "image": "https://www.tastingtable.com/img/gallery/coffee-brands-ranked-from-worst-to-best/l-intro-1645231221.jpg"
 },
 {
     "itemName": "green Tea",
     "description": "",
     "amount": 5,
-    "price": 15
-}
-]
+    "price": 15,
+    "image": ""
+},
+{
+    "itemName": "milk",
+    "description": "",
+    "amount": 2,
+    "price": 8,
+    "image":""
+}]
