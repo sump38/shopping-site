@@ -11,23 +11,43 @@ fetch('http://127.0.0.1:5500/products.json')
 
 function createNewItem(items){
     for (let i = 0; i < items.length; i++) {
-        const itemDiv = document.createElement("div")
-        itemDiv.innerText = items[i].itemName;
-        itemDiv.classList.add("product");
-        productContainer.append(itemDiv)
+        const colDIV = document.createElement("div");
+        colDIV.classList.add("col");
+        const cardDIV = document.createElement("div");
+        cardDIV.classList.add("card", "mb-4", "rounded-3", "shadow-sm");
+        const cardHeaderDIV = document.createElement("div");
+        cardHeaderDIV.classList.add("card-header","py-3");
+        const cardTitle = document.createElement("h1");
+        cardTitle.classList.add("card-title");
+        cardTitle.innerText = items[i].itemName
+        const cardBody = document.createElement("div");
+        cardBody.classList.add("card-body");
+        const cardImage = document.createElement("img");
+        cardImage.classList.add("img-thumbnail", "img-fluid");
+        cardImage.setAttribute("src",items[i].image)
+        const priceTitle = document.createElement("h1");
+        priceTitle.classList.add("card-title");
+        priceTitle.innerText = items[i].price;
+        const kgSmall = document.createElement("small");
+        kgSmall.classList.add("text-muted", "fw-light");
+        kgSmall.innerText = "$/kg"
+        const itemDescription = document.createElement("p");
+        itemDescription.innerText = items[i].description;
+        
+
+        
+        productContainer.appendChild(colDIV)
+        colDIV.appendChild(cardDIV)
+        cardDIV.appendChild(cardHeaderDIV)
+        cardDIV.appendChild(cardBody);
+        cardHeaderDIV.appendChild(cardTitle);
+        cardBody.appendChild(cardImage);
+        cardBody.appendChild(priceTitle);
+        cardBody.appendChild(itemDescription)
+        priceTitle.appendChild(kgSmall);
+        // const itemDiv = document.createElement("div")
+        // itemDiv.innerText = items[i].itemName;
+        // itemDiv.classList.add("product");
+        // productContainer.append(itemDiv)
     }
 }
-
-
-// const blackTea = document.createElement("div");
-// const greenTea = document.createElement("div");
-
-// blackTea.innerHTML = productsList[0];
-// greenTea.innerHTML = productsList[1];
-
-
-// blackTea.classList.add("product");
-// greenTea.classList.add("product");
-
-// productContainer.appendChild(blackTea);
-// productContainer.appendChild(greenTea);
