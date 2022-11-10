@@ -3,10 +3,11 @@ const submitBtn = document.getElementById("subminBtn");
 const newItemField = document.getElementById("newItemField");
 
 
-fetch('http://127.0.0.1:5500/products.json')
+fetch('http://localhost:3004/items')
     .then((response) => response.json())
     .then((data) =>{
-       createNewItem(data)
+       
+        createNewItem(data)
     });
 
 function createNewItem(items){
