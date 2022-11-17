@@ -3,21 +3,21 @@
     {
         "itemName": "black Tea",
         "description": "realy nice black tea!",
-        "amount": 5,
+        "amount": 99,
         "price": 15,
         "image": "https://www.tastingtable.com/img/gallery/coffee-brands-ranked-from-worst-to-best/l-intro-1645231221.jpg"
     },
     {
         "itemName": "green Tea",
         "description": "realy nice green tea!",
-        "amount": 5,
+        "amount": 98,
         "price": 15,
         "image": "https://assets.epicurious.com/photos/5887d21b5f76684c78cf57db/16:9/w_2560%2Cc_limit/green_tea_24012017.jpg"
     },
     {
         "itemName": "milk",
         "description": "realy nice goat milk!",
-        "amount": 2,
+        "amount": 96,
         "price": 8,
         "image":"https://dairyfarmersofcanada.ca/sites/default/files/image_file_browser/article/2019/getty-854296650.jpg"
     }]

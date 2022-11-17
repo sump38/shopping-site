@@ -3,7 +3,7 @@ const submitBtn = document.getElementById("subminBtn");
 const newItemField = document.getElementById("newItemField");
 
 
-fetch('http://localhost:3004/items')
+fetch('http://localhost:3000/items')
     .then((response) => response.json())
     .then((data) =>{
        
@@ -12,6 +12,7 @@ fetch('http://localhost:3004/items')
 
 function createNewItem(items){
     for (let i = 0; i < items.length; i++) {
+        //create and modify the elements.
         const colDIV = document.createElement("div");
         colDIV.classList.add("col");
         const cardDIV = document.createElement("div");
@@ -35,8 +36,7 @@ function createNewItem(items){
         const itemDescription = document.createElement("p");
         itemDescription.innerText = items[i].description;
         
-
-        
+            //append section
         productContainer.appendChild(colDIV)
         colDIV.appendChild(cardDIV)
         cardDIV.appendChild(cardHeaderDIV)
@@ -46,9 +46,5 @@ function createNewItem(items){
         cardBody.appendChild(priceTitle);
         cardBody.appendChild(itemDescription)
         priceTitle.appendChild(kgSmall);
-        // const itemDiv = document.createElement("div")
-        // itemDiv.innerText = items[i].itemName;
-        // itemDiv.classList.add("product");
-        // productContainer.append(itemDiv)
     }
 }
