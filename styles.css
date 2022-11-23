@@ -3,3 +3,12 @@
     margin:10px;
     border:1px solid black;
 }
+
+.productWrapper{
+    display: flex;
+    
+}
+
+#products-container{
+    justify-content: center;
+}

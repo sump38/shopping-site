@@ -10,37 +10,37 @@
     <title>teaShop</title>
 </head>
 <body>
-    <!-- <label for="newItem">Enter new item here: </label> -->
-    <!-- <input id="newItemField" type="text"> -->
-    <!-- <input id="subminBtn" type="submit" value="GO"> -->
+<section id="header">header here</section>
+<div class="productWrapper">
+  <div id="products-container" class="row row-cols-1 row-cols-md-4 mb-3">
 
-    <div id="products-container" class="row row-cols-1 row-cols-md-3 mb-3">
- 
-    </div>
+  </div>
+</div>
 
-    <script id="itemsTemplate" type="text/x-handlebars-template">
-        {{#each items}}
-        <div class="col">
-            <div class="card mb-4 rounded-3 shadow-sm">
-              <div class="card-header py-3">
-                <h4 class="my-0 fw-normal">{{itemName}}</h4>
-              </div>
-              <div class="card-body">
-                    <img class="img-fluid" src="{{image}}" >
-                <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">$</small>{{price}}<small class="text-muted fw-light">/kg</small></h1>
-                    <p>{{description}}</p>
-                    
-                    <div class="input-group mb-3">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
-                        <input type="text" class="form-control" placeholder="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
-                    </div>
-                <button type="button" class="w-100 btn btn-primary">Buy</button>
-              </div>
-            </div>
+<section id="footer">footer here</section>
+<script id="itemsTemplate" type="text/x-handlebars-template">
+    {{#each items}}
+    <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3">
+            <h4 class="my-0 fw-normal">{{itemName}}</h4>
           </div>
-        {{/each}}
-    </script>
+          <div class="card-body">
+                <img class="img-fluid" src="{{image}}" >
+            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">$</small>{{price}}<small class="text-muted fw-light">/kg</small></h1>
+                <p>{{description}}</p>
+                
+                <div class="input-group mb-3">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">-</button>
+                    <input type="text" class="form-control" placeholder="0" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                    <button class="btn btn-outline-secondary" type="button" id="button-addon1">+</button>
+                </div>
+            <button type="button" class="w-100 btn btn-primary">Buy</button>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+</script>
 
 
 </body>
