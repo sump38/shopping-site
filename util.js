@@ -12,11 +12,15 @@ function createProduct(product) {
 }
 
 function createProductList(productList) {
-    //TODO: add logic
-    //stub
-
     const productListElement = document.createElement('div');
-    productListElement.innerHTML = 'PRODUCTS LIST HERE';
+    if(productList && productList.length) {
+        for(let i=0;i<productList.length;i++) {
+            const product = createProduct(productList[i]);
+            productListElement.appendChild(product);
+        }
+    } else {
+        productListElement.innerHTML = 'No Items.';
+    }
     return productListElement;
 }
 
