@@ -1,12 +1,24 @@
 
 
-//must have product.title
 function createProduct(product) {
-    //TODO: add logic to create product function;
-    //stub
 
     const productHTML = document.createElement('div');
-    productHTML.innerHTML = product.title;
+    productHTML.classList.add('product');
+
+    const productTitle = document.createElement('h2');
+    productTitle.innerHTML = product.name;
+    productHTML.appendChild(productTitle);
+
+    const productDataContainer = document.createElement('div');
+    productDataContainer.classList.add('product-data-container');
+    productHTML.appendChild(productDataContainer);
+
+    const productPrice = document.createElement('div');
+    productPrice.classList.add('product-price');
+    productPrice.innerHTML = 'Price: ' + product.price;
+
+    productDataContainer.appendChild(productPrice);
+    
 
     return productHTML;
 }
