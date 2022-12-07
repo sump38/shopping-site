@@ -6,30 +6,33 @@ const headerData = {
     title: 'My Shopping Site'
 };
 
-productsArray.push({
-    name: 'Black Tea',
-    amount: 99,
-    price: 20
-});
+function onDataSuccess(data) {
+    console.log('DATA SUCCESS');
+}
 
-productsArray.push({
-    name: 'Coffee',
-    amount: 2,
-    price: 21
-});
+function onDataFailed(error) {
+    console.log('DATA FAILED');
+}
 
-productsArray.push({
-    name: 'Milk',
-    amount: 100,
-    price: 3
-});
+function onDataDone(data) {
+    console.log('PROMISE FINALLY');
+}
 
 
-productsArray.push({
-    name: 'Green Tea',
-    amount: 29713,
-    price: 1
+
+
+const responsePromise = fetch('http://localhost:3000/products');
+const dataPromise = responsePromise.then( response => {
+    return response.json();
 });
+dataPromise
+    .then(onDataSuccess)
+    .catch(onDataFailed)
+    .finally(onDataDone);
+
+console.log('code still running');
+
+
 
 const productsHTML = createProductList(productsArray);
 productContainer.appendChild(productsHTML);
