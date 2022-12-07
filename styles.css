@@ -1,3 +1,8 @@
+body {
+    background-image: url("https://img.freepik.com/premium-photo/asian-tea-concept-two-white-cups-tea-teapot-tea-set-chopsticks-bamboo-mat-surrounded-with-dry-green-tea-white-background_76790-439.jpg?w=2000");
+    background-color: #cccccc;
+   }
+
 .product {
     padding:15px;
     margin:10px;
@@ -10,5 +15,6 @@
 }
 
 #products-container{
+    margin: 20px 0;
     justify-content: center;
 }

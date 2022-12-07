@@ -8,7 +8,6 @@ const newItemField = document.getElementById("newItemField");
 fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
     .then((response) => response.json())
     .then((data) =>{
-       console.log(data);
         createNewItem(data)
     });
 
@@ -19,6 +18,17 @@ function createNewItem(items){
     var productContaner = document.getElementById('products-container');
     productContainer.innerHTML = generatedHTML
 }
+
+function decrement(event){
+    if(event.path[1].childNodes[3].value>=0){
+        event.path[1].childNodes[3].value--
+    }
+}
+
+function incrament (event){
+event.path[1].childNodes[3].value++
+}
+
 
 
 
