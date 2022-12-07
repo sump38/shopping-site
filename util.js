@@ -6,7 +6,7 @@ function createProduct(product) {
     //stub
 
     const productHTML = document.createElement('div');
-    productHTML.innerHTML = product.title;
+    productHTML.innerHTML = product.name;
 
     return productHTML;
 }
