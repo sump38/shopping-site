@@ -2,22 +2,15 @@ const productContainer = document.getElementById("products-container");
 const headerContainer = document.getElementById('header');
 
 let productsArray = [];
-const headerData = {
-    title: 'My Shopping Site'
-};
+let headerData = null;
 
 function onDataSuccess(data) {
     productsArray = data;
     renderPage();
-    console.log('DATA SUCCESS');
 }
 
 function onDataFailed(error) {
-    console.log('DATA FAILED');
-}
-
-function onDataDone(data) {
-    console.log('PROMISE FINALLY');
+    alert('products data failed to arrive');
 }
 
 function renderPage() {
@@ -31,6 +24,18 @@ function renderPage() {
 }
 
 
+fetch('http://localhost:3000/header')
+    .then(res => res.json())
+    .then((data) => {
+        headerData = data;
+        renderPage();
+    })
+    .catch(() => {
+        alert('Error occured!');
+        //TODO: //
+    });
+
+
 
 const responsePromise = fetch('http://localhost:3000/products');
 const dataPromise = responsePromise.then( response => {
@@ -39,7 +44,9 @@ const dataPromise = responsePromise.then( response => {
 dataPromise
     .then(onDataSuccess)
     .catch(onDataFailed)
-    .finally(onDataDone);
+    .finally(() => {
+        console.log('promise ended');
+    });
 
 console.log('code still running');
 
