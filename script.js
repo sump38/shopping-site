@@ -1,12 +1,14 @@
 const productContainer = document.getElementById("products-container");
 const headerContainer = document.getElementById('header');
 
-const productsArray = [];
+let productsArray = [];
 const headerData = {
     title: 'My Shopping Site'
 };
 
 function onDataSuccess(data) {
+    productsArray = data;
+    renderPage();
     console.log('DATA SUCCESS');
 }
 
@@ -18,6 +20,15 @@ function onDataDone(data) {
     console.log('PROMISE FINALLY');
 }
 
+function renderPage() {
+    const productsHTML = createProductList(productsArray);
+    productContainer.innerHTML = '';
+    productContainer.appendChild(productsHTML);
+
+    const headerHTML = createHeader(headerData);
+    headerContainer.innerHTML = '';
+    headerContainer.appendChild(headerHTML);
+}
 
 
 
@@ -32,13 +43,8 @@ dataPromise
 
 console.log('code still running');
 
+renderPage();
 
-
-const productsHTML = createProductList(productsArray);
-productContainer.appendChild(productsHTML);
-
-const headerHTML = createHeader(headerData);
-headerContainer.appendChild(headerHTML);
 
 
 
