@@ -1,74 +1,25 @@
 // const { Handlebars } = require("./handlebars-v4.7.7");
 
-const productContainer = document.getElementById("products-container");
-const submitBtn = document.getElementById("subminBtn");
-const newItemField = document.getElementById("newItemField");
+const productsContainer = document.getElementById('products-container');
+const submitBtn = document.getElementById('subminBtn');
+const newItemField = document.getElementById('newItemField');
 
+fetch(
+	'https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json'
+)
+	.then((response) => response.json())
+	.then((data) => {
+		console.log(data);
+		const items = createNewItem(data);
+		productsContainer.innerHTML = items;
+	});
 
-fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
-    .then((response) => response.json())
-    .then((data) =>{
-        createNewItem(data)
-    });
-
-function createNewItem(items){
-    var rawTemplate = document.getElementById('itemsTemplate').innerHTML;
-    var compiledTemplate = Handlebars.compile(rawTemplate);
-    var generatedHTML = compiledTemplate(items)
-    var productContaner = document.getElementById('products-container');
-    productContainer.innerHTML = generatedHTML
+function decrement(event) {
+	if (event.path[1].childNodes[3].value > 0) {
+		event.path[1].childNodes[3].value--;
+	}
 }
 
-function decrement(event){
-    if(event.path[1].childNodes[3].value>=0){
-        event.path[1].childNodes[3].value--
-    }
+function incrament(event) {
+	event.path[1].childNodes[3].value++;
 }
-
-function incrament (event){
-event.path[1].childNodes[3].value++
-}
-
-
-
-
-
-
-/**
-     for (let i = 0; i < items.length; i++) {
-        //create and modify the elements.
-        const colDIV = document.createElement("div");
-        colDIV.classList.add("col");
-        const cardDIV = document.createElement("div");
-        cardDIV.classList.add("card", "mb-4", "rounded-3", "shadow-sm");
-        const cardHeaderDIV = document.createElement("div");
-        cardHeaderDIV.classList.add("card-header","py-3");
-        const cardTitle = document.createElement("h1");
-        cardTitle.classList.add("card-title");
-        cardTitle.innerText = items[i].itemName
-        const cardBody = document.createElement("div");
-        cardBody.classList.add("card-body");
-        const cardImage = document.createElement("img");
-        cardImage.classList.add("img-thumbnail", "img-fluid");
-        cardImage.setAttribute("src",items[i].image)
-        const priceTitle = document.createElement("h1");
-        priceTitle.classList.add("card-title");
-        priceTitle.innerText = items[i].price;
-        const kgSmall = document.createElement("small");
-        kgSmall.classList.add("text-muted", "fw-light");
-        kgSmall.innerText = "$/kg"
-        const itemDescription = document.createElement("p");
-        itemDescription.innerText = items[i].description;
-            //********append section************
-        productContainer.appendChild(colDIV)
-        colDIV.appendChild(cardDIV)
-        cardDIV.appendChild(cardHeaderDIV)
-        cardDIV.appendChild(cardBody);
-        cardHeaderDIV.appendChild(cardTitle);
-        cardBody.appendChild(cardImage);
-        cardBody.appendChild(priceTitle);
-        cardBody.appendChild(itemDescription)
-        priceTitle.appendChild(kgSmall);
-    }
-  
- */
