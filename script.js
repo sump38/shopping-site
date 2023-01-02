@@ -8,10 +8,16 @@ const filterBtn = document.getElementById('filterSubmit')
 fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
     .then((response) => response.json())
     .then((data) =>{
-        const generatedHTML = createNewItem(data)
-        productContainer.innerHTML = generatedHTML;
+        createNewItem(data)
     });
 
+function createNewItem(items){
+    var rawTemplate = document.getElementById('itemsTemplate').innerHTML;
+    var compiledTemplate = Handlebars.compile(rawTemplate);
+    var generatedHTML = compiledTemplate(items)
+    var productContaner = document.getElementById('products-container');
+    productContainer.innerHTML = generatedHTML
+}
 
 function decrement(event){
     if(event.path[1].childNodes[3].value>=0){
@@ -19,6 +25,6 @@ function decrement(event){
     }
 }
 
-function incrament (event){
-event.path[1].childNodes[3].value++
+function incrament(event) {
+	event.path[1].childNodes[3].value++;
 }

@@ -6,9 +6,10 @@ function createNewItem(items) {
 }
 
 function filterElement(productList){
-    
-
 }
+
+function sortByPrice() {}
+
 
 function filterByName(productList,filterString){
     const productToReturn = []
