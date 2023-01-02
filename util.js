@@ -5,7 +5,18 @@ function createNewItem(items) {
 	return generatedHTML;
 }
 
-function filterElement(productList){
+function decrement(event){
+    if(event.path[1].childNodes[3].value>0){
+        event.path[1].childNodes[3].value--
+    }
+}
+
+function incrament(event) {
+	event.path[1].childNodes[3].value++;
+}
+
+
+function filterByPrice(productList,filterFN){
 }
 
 function sortByPrice() {}

@@ -8,7 +8,7 @@ const filterBtn = document.getElementById('filterSubmit')
 fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
     .then((response) => response.json())
     .then((data) =>{
-        createNewItem(data)
+        console.log(data);
     });
 
 function createNewItem(items){
@@ -19,12 +19,3 @@ function createNewItem(items){
     productContainer.innerHTML = generatedHTML
 }
 
-function decrement(event){
-    if(event.path[1].childNodes[3].value>=0){
-        event.path[1].childNodes[3].value--
-    }
-}
-
-function incrament(event) {
-	event.path[1].childNodes[3].value++;
-}
