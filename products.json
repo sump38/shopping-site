@@ -1,14 +1,14 @@
 {
     "items": [
     {
-        "itemName": "black Tea",
+        "itemName": "Black Tea",
         "description": "realy nice black tea!",
         "amount": 99,
         "price": 15,
         "image": "https://post.medicalnewstoday.com/wp-content/uploads/sites/3/2022/08/black_tea_GettyImages660561805_Header-1024x575.jpg"
     },
     {
-        "itemName": "green Tea",
+        "itemName": "Green Tea",
         "description": "realy nice green tea!",
         "amount": 98,
         "price": 15,
@@ -20,5 +20,19 @@
         "amount": 96,
         "price": 8,
         "image":"https://dairyfarmersofcanada.ca/sites/default/files/image_file_browser/article/2019/getty-854296650.jpg"
+    },
+    {
+        "itemName": "Jasmin Tea",
+        "description": "realy nice jasmin tea!",
+        "amount": 98,
+        "price": 15,
+        "image": "https://cdn.shopify.com/s/files/1/0415/5182/3016/articles/5dbdee285ad64f4f71819fc6_5ba73eee5ced0cb349e58ace_Still-Life-Close-range-Photogrammetry-Jasmine-Tea-1805294_1296x.jpeg?v=1596835166"
+    },
+    {
+        "itemName": "Chamomile Tea",
+        "description": "realy nice chamomile tea!",
+        "amount": 98,
+        "price": 15,
+        "image": "https://i0.wp.com/post.medicalnewstoday.com/wp-content/uploads/sites/3/2020/01/chamomile-tea-on-a-board-1024x683.jpg?w=1155&h=1541"
     }]
 }
