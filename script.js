@@ -1,21 +1,29 @@
 const productContainer = document.getElementById("products-container");
 const submitBtn = document.getElementById("subminBtn");
 const newItemField = document.getElementById("newItemField");
-const select = document.getElementById('sortSelect')
+const sortProducts = document.getElementById('sortProducts')
 const filterBtn = document.getElementById('filterSubmit')
+let productListHtml, tempProductArray;
+let productData;
+sortValue = 'price'
 
 
 fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
     .then((response) => response.json())
     .then((data) =>{
-        console.log(data);
+        productData = data;
+        productListHtml =  createItemTemplate(data)
+        renderPage()
     });
 
-function createNewItem(items){
-    var rawTemplate = document.getElementById('itemsTemplate').innerHTML;
-    var compiledTemplate = Handlebars.compile(rawTemplate);
-    var generatedHTML = compiledTemplate(items)
-    var productContaner = document.getElementById('products-container');
-    productContainer.innerHTML = generatedHTML
-}
+
+
+sortProducts.addEventListener('change',(e)=>{
+  let returnArr
+    sortValue = e.target.value 
+    productData.items.sort(compareFN)
+    productListHtml = createItemTemplate(tempProductArray)
+    renderPage()
+})
+
 

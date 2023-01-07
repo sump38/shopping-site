@@ -1,8 +1,17 @@
-function createNewItem(items) {
+function createItemTemplate(items) {
 	let rawTemplate = document.getElementById('itemsTemplate').innerHTML;
 	let compiledTemplate = Handlebars.compile(rawTemplate);
 	let generatedHTML = compiledTemplate(items);
 	return generatedHTML;
+}
+
+function renderPage(){
+    tempProductArray = productData;
+    tempProductArray.items.sort(compareFN);
+    productListHtml = createItemTemplate(tempProductArray)
+
+    productContainer.innerHTML = ""
+    productContainer.innerHTML = productListHtml;
 }
 
 function decrement(event){
@@ -19,7 +28,13 @@ function incrament(event) {
 function filterByPrice(productList,filterFN){
 }
 
-function sortByPrice() {}
+function compareFN(productA,productB) {
+    if(sortValue === 'price'){
+        return productA.price-productB.price
+    }else{
+        return productA.itemName.localeCompare(productB.itemName)
+    }
+}
 
 
 function filterByName(productList,filterString){

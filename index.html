@@ -13,42 +13,32 @@
 </head>
 <body>
 <section id="header">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Offcanvas navbar large">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">My Tea Shop <i class="bi bi-cup-hot"></i></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar2" aria-controls="offcanvasNavbar2">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="offcanvas offcanvas-end text-bg-dark" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbar2Label">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbar2Label">Offcanvas</h5>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-          <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">Checkout</a>
-            </li>
-        </div>
-      </div>
-    </div>
-  </nav>
+<h4>Tea Shop</h4>
+  <label for="sort">sort products by: </label>
+  <select name="sort" id="sortProducts">
+    <option value="price">price</option>
+    <option value="name">name</option>
+  </select>
   
+  <label for="sort">filter products by: </label>
+  <select name="filter" id="filterProducts">
+    <option value="0">0-20</option>
+    <option value="1">21-50</option>
+    <option value="2">51-100</option>
+  </select>
+
 </section>
 <div class="productWrapper">
-  <div id="products-container" class="row row-cols-1 row-cols-md-4 mb-3">
+  <div id="products-container" class="row row-cols-1 row-cols-md-4 mb-4">
 
   </div>
 </div>
-
 <section id="footer">footer here</section>
+
 <script id="itemsTemplate" type="text/x-handlebars-template">
     {{#each items}}
     <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm">
+        <div class="card md-3 rounded-3 shadow-sm">
           <div class="card-header py-3">
             <h4 class="my-0 fw-normal">{{itemName}}</h4>
           </div>
