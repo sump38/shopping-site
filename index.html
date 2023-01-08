@@ -23,30 +23,34 @@
 		<section id="header">
 			<h4>Tea Shop</h4>
 			<button id="showFiltersBtn">show filters</button>
-			<section id="filtersSection" class="hidden">
-				<label for="sort">sort products by: </label>
-				<select name="sort" id="sortProducts">
-					<option value="price">price</option>
-					<option value="name">name</option>
-				</select>
-				<section id="filterByPriceSection">
-					<input type="number" class="filterByPriceInput" placeholder="Min" />
-					<label for="">-</label>
-					<input type="number" class="filterByPriceInput" placeholder="Max" />
-					<button id="filterByPriceBtn">Go</button>
-				</section>
-				<section id="filterByNameSection">
-					<label for="filterByNameInput">
-						Enter product full/patf of name:
-					</label>
-					<input
-						type="text"
-						id="filterByNameInput"
-						placeholder="Name of product"
-					/>
-				</section>
+		</section>
+
+		<section id="filtersSection" class="filtersSectionClass hidden">
+			<label for="sort">sort products by: </label>
+			<select name="sort" id="sortProducts">
+				<option value="price">price</option>
+				<option value="name">name</option>
+			</select>
+
+			<section id="filterByPriceSection">
+				<input type="number" class="filterByPriceInput" placeholder="Min" />
+				<label for="">-</label>
+				<input type="number" class="filterByPriceInput" placeholder="Max" />
+				<button id="filterByPriceBtn">Go</button>
+			</section>
+
+			<section id="filterByNameSection">
+				<label for="filterByNameInput">
+					Enter product full/patf of name:
+				</label>
+				<input
+					type="text"
+					id="filterByNameInput"
+					placeholder="Name of product"
+				/>
 			</section>
 		</section>
+
 		<div class="productWrapper">
 			<div
 				id="products-container"

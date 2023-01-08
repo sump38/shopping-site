@@ -10,7 +10,7 @@ body {
 	flex-wrap: wrap;
 }
 
-#filtersSection {
+.filtersSectionClass {
 	display: flex;
 	flex-wrap: wrap;
 }

@@ -7,17 +7,21 @@ const showFiltersBtn = document.getElementById('showFiltersBtn');
 const filterByPriceInput =
 	document.getElementsByClassName('filterByPriceInput');
 const filterByPriceBtn = document.getElementById('filterByPriceBtn');
+const filterByNameInput = document.getElementById('filterByNameInput');
 let productListHtml,
 	tempProductArray,
 	productData,
 	sortValue = 'price';
 
 function jsonFormating(nonFormatedObj) {
-	let temp = JSON.stringify({ items: nonFormatedObj });
-	return JSON.parse(temp);
+	let productData = JSON.stringify({ items: nonFormatedObj });
+	return JSON.parse(productData);
 }
 
 function renderPage(items) {
+	if (Array.isArray(items)) {
+		items = jsonFormating(items);
+	}
 	items.items.sort(compareFN);
 
 	let rawTemplate = document.getElementById('itemsTemplate').innerHTML;
@@ -44,7 +48,6 @@ function filterByPriceFN(productList, nimNumber, maxNumber) {
 			return product;
 	});
 	if (tempProductArray.length >= 1) {
-		tempProductArray = jsonFormating(tempProductArray);
 		renderPage(tempProductArray);
 	}
 }
@@ -52,17 +55,16 @@ function filterByPriceFN(productList, nimNumber, maxNumber) {
 function compareFN(productA, productB) {
 	if (sortValue === 'price') {
 		return productA.price - productB.price;
-	} else {
-		return productA.itemName.localeCompare(productB.itemName);
 	}
+	return productA.itemName.localeCompare(productB.itemName);
 }
 
 function filterByNameFN(productList, filterString) {
-	const productToReturn = [];
-	productList.filter((elm) => {
+	let productsToReturn = [];
+	productList.items.filter((elm) => {
 		if (elm.itemName.toLowerCase().includes(filterString.toLowerCase())) {
-			productToReturn.push(elm);
+			productsToReturn.push(elm);
 		}
 	});
-	return productToReturn;
+	renderPage(productsToReturn);
 }

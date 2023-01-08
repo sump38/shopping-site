@@ -24,6 +24,11 @@ filterByPriceBtn.addEventListener('click', () => {
 	if (filterMaxNumber < filterMinNumber || filterMinNumber < 0) {
 		return 0;
 	}
-
 	filterByPriceFN(productData, filterMinNumber, filterMaxNumber);
+});
+
+filterByNameInput.addEventListener('keyup', (e) => {
+	let keyPressed = e.target.value;
+	keyPressed = keyPressed.toLowerCase();
+	filterByNameFN(productData, keyPressed);
 });
