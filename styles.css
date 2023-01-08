@@ -1,28 +1,47 @@
-#header{
-    height: 50px;
-    background-color: black;
-    display: flex;
-    flex-wrap: wrap;
+body {
+	background-image: url('https://img.freepik.com/premium-photo/asian-tea-concept-two-white-cups-tea-teapot-tea-set-chopsticks-bamboo-mat-surrounded-with-dry-green-tea-white-background_76790-439.jpg?w=2000');
+	background-color: #cccccc;
 }
 
-body {
-    background-image: url("https://img.freepik.com/premium-photo/asian-tea-concept-two-white-cups-tea-teapot-tea-set-chopsticks-bamboo-mat-surrounded-with-dry-green-tea-white-background_76790-439.jpg?w=2000");
-    background-color: #cccccc;
-   }
+#header {
+	height: 50px;
+	background-color: black;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+#filtersSection {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.filterByPriceInput::-webkit-outer-spin-button,
+.filterByPriceInput::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+.filterByPriceInput {
+	width: 60px;
+}
 
 .product {
-    padding:15px;
-    margin:10px;
-    border:1px solid black;
+	padding: 15px;
+	margin: 10px;
+	border: 1px solid black;
 }
 
-.productWrapper{
-    display: flex;
-    
+.productWrapper {
+	display: flex;
 }
 
-#products-container{
-    padding: 0 90px;
-    margin: 20px 0;
-    justify-content: center;
+#products-container {
+	padding: 0 90px;
+	margin: 20px 0;
+	justify-content: center;
+}
+
+.hidden {
+	display: none;
+	transition: 1s;
 }

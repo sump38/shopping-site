@@ -1,29 +1,29 @@
-const productContainer = document.getElementById("products-container");
-const submitBtn = document.getElementById("subminBtn");
-const newItemField = document.getElementById("newItemField");
-const sortProducts = document.getElementById('sortProducts')
-const filterBtn = document.getElementById('filterSubmit')
-let productListHtml, tempProductArray;
-let productData;
-sortValue = 'price'
+fetch(
+	'https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json'
+)
+	.then((response) => response.json())
+	.then((data) => {
+		productData = data;
+		renderPage(productData);
+	});
 
+sortProducts.addEventListener('change', (e) => {
+	sortValue = e.target.value;
+	productData.items.sort(compareFN);
+	renderPage(productData);
+});
 
-fetch('https://raw.githubusercontent.com/MrchinFTW/class-work/main/products.json')
-    .then((response) => response.json())
-    .then((data) =>{
-        productData = data;
-        productListHtml =  createItemTemplate(data)
-        renderPage()
-    });
+showFiltersBtn.addEventListener('click', () => {
+	// TODO: add transition to the toggle
+	filtersSection.classList.toggle('hidden');
+});
 
+filterByPriceBtn.addEventListener('click', () => {
+	let filterMinNumber = filterByPriceInput[0].valueAsNumber;
+	let filterMaxNumber = filterByPriceInput[1].valueAsNumber;
+	if (filterMaxNumber < filterMinNumber || filterMinNumber < 0) {
+		return 0;
+	}
 
-
-sortProducts.addEventListener('change',(e)=>{
-  let returnArr
-    sortValue = e.target.value 
-    productData.items.sort(compareFN)
-    productListHtml = createItemTemplate(tempProductArray)
-    renderPage()
-})
-
-
+	filterByPriceFN(productData, filterMinNumber, filterMaxNumber);
+});
