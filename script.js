@@ -9,8 +9,9 @@ fetch(
 
 sortProducts.addEventListener('change', (e) => {
 	sortValue = e.target.value;
-	productData.items.sort(compareFN);
-	renderPage(productData);
+	tempProductArray = jsonFormating(tempProductArray);
+	tempProductArray.items.sort(compareFN);
+	renderPage(tempProductArray);
 });
 
 showFiltersBtn.addEventListener('click', () => {
@@ -25,6 +26,7 @@ filterByPriceBtn.addEventListener('click', () => {
 		return 0;
 	}
 	filterByPriceFN(productData, filterMinNumber, filterMaxNumber);
+	filterByPriceInput[0].value = filterByPriceInput[1].value = '';
 });
 
 filterByNameInput.addEventListener('keyup', (e) => {

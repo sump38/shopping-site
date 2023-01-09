@@ -4,6 +4,7 @@ const newItemField = document.getElementById('newItemField');
 const sortProducts = document.getElementById('sortProducts');
 const filtersSection = document.getElementById('filtersSection');
 const showFiltersBtn = document.getElementById('showFiltersBtn');
+const resetBtn = document.getElementById('resetBtn');
 const filterByPriceInput =
 	document.getElementsByClassName('filterByPriceInput');
 const filterByPriceBtn = document.getElementById('filterByPriceBtn');
@@ -14,8 +15,11 @@ let productListHtml,
 	sortValue = 'price';
 
 function jsonFormating(nonFormatedObj) {
-	let productData = JSON.stringify({ items: nonFormatedObj });
-	return JSON.parse(productData);
+	if (Array.isArray(nonFormatedObj)) {
+		let FormatedObj = JSON.stringify({ items: nonFormatedObj });
+		return JSON.parse(FormatedObj);
+	}
+	return nonFormatedObj;
 }
 
 function renderPage(items) {
@@ -67,4 +71,13 @@ function filterByNameFN(productList, filterString) {
 		}
 	});
 	renderPage(productsToReturn);
+}
+
+function showAllProducts() {
+	tempProductArray = productData;
+	renderPage(productData);
+	filterByPriceInput[0].value =
+		filterByPriceInput[1].value =
+		filterByNameInput.value =
+			'';
 }

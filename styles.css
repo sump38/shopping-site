@@ -5,12 +5,23 @@ body {
 
 #header {
 	height: 50px;
-	background-color: black;
+	background-color: #2e502f;
 	display: flex;
 	flex-wrap: wrap;
 }
 
+.headerName {
+	margin-top: 8px;
+	color: white;
+	padding: 0 25px;
+}
+
 .filtersSectionClass {
+	background-color: #405341;
+	position: sticky;
+	top: 0;
+	justify-content: space-around;
+	z-index: 1;
 	display: flex;
 	flex-wrap: wrap;
 }
