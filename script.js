@@ -2,14 +2,26 @@ const productContainer = document.getElementById("products-container");
 const headerContainer = document.getElementById('header');
 const sortDropdown = document.getElementById('sortMenu');
 const filterByPriceDropdown = document.getElementById('filterByPriceMenu');
+const searchBarInput = document.getElementById('searchBar');
+
 
 let sortValue = 'price';
+let searchQuery = '';
 let filterByPriceSelectedValue = '-1';
+let debounceTimeoutId = 0;
 let filterByPriceValueArray = [
     [0,20],
     [20,50],
     [50,100]
 ]
+
+searchBarInput.addEventListener('input', (evt) => {
+    searchQuery = evt.target.value;
+    window.clearTimeout(debounceTimeoutId);
+    debounceTimeoutId = window.setTimeout(() => {
+        renderPage();
+    },300);
+})
 
 filterByPriceDropdown.addEventListener('change', (evt) => {
     filterByPriceSelectedValue = evt.target.value;
@@ -40,6 +52,7 @@ function onDataFailed(error) {
 function renderPage() {
     //sort products by price
     let tempProductArray = productsArray;
+    tempProductArray = filterByName(tempProductArray, searchQuery);
     tempProductArray.sort(compareByPriceFunction);
     tempProductArray = filterByPrice(tempProductArray, filterByPriceValueArray[+filterByPriceSelectedValue]);
 
